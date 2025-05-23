@@ -1,6 +1,7 @@
 import cv2
 import face_recognition
 import numpy as np
+from playsound import playsound
 
 video = cv2.VideoCapture(0)
 
@@ -17,6 +18,9 @@ while True:
 
   frame_video = frame.copy()
   frame_video[mask] = cv2.addWeighted(frame_video, 1, shapes, 0.3, 0)[mask]
+
+  playsound('assets/fairy.mp3', False)
+
   cv2.imshow('Dad prank', frame_video)
 
   if cv2.waitKey(1) & 0xFF == ord('q'):
